@@ -1,9 +1,11 @@
-package com.app.pravin.chartservice;
+package com.app.pravin.vendorservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class SpringCloudVendorServiceApplication {
 
 	public static void main(String[] args) {
