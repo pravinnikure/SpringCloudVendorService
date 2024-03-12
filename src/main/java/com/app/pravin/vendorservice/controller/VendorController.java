@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.pravin.vendorservice.bean.CartInfo;
 import com.app.pravin.vendorservice.service.VendorService;
 
 @RestController
@@ -16,9 +17,18 @@ public class VendorController {
 	private VendorService service;
 
 	@GetMapping("/message")
-	public String showVendorsData() {
-		String response = service.getData();
-		return response;
+	public ResponseEntity<String> showVendorsData() {
+		ResponseEntity<String> response = service.showCartMessage();
+		return  ResponseEntity.ok("Call FROM VENDOR SERVICE "+response.getBody());
+	}
+	
+	@GetMapping("/cartInfo")
+	public ResponseEntity<String> showCartInfo()
+	{
+		ResponseEntity<CartInfo> response = service.getCrtInfo("Test");
+		
+		return ResponseEntity.ok("FROM VEDOR SERVICE "+ response.getBody());
+
 	}
 
 }
