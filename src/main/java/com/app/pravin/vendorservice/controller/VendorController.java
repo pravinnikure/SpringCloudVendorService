@@ -11,14 +11,13 @@ import com.app.pravin.vendorservice.service.VendorService;
 @RestController
 @RequestMapping("/vendor")
 public class VendorController {
-	
+
 	@Autowired
 	private VendorService service;
-	
+
 	@GetMapping("/message")
-	public String showVendorsData()
-	{
-		String response =  service.getData();
+	public String showVendorsData() {
+		String response = service.getData();
 		return response;
 	}
 
